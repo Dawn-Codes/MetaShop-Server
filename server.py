@@ -41,7 +41,8 @@ def enter_server_loop():
         image_processor.update_image_matcher(image_matcher)
     shared_data.lock.release()  # Exit Critical Section
 
-    main_server = Server("localhost", 32304, image_processor)
+    #main_server = Server("localhost", 32304, image_processor)
+    main_server = Server("0.0.0.0", 32304, image_processor)
     main_server.enter_main_loop()
 
     database.close_connection()
